@@ -1,0 +1,39 @@
+{
+  "name": "react-native-jsonschema-form",
+  "description": "A simple React component capable of building react native layout forms out of a JSON schema.",
+  "main": "index.js",
+  "version": "0.0.6",
+  "author": "Roy aizenebrg <davario@gmail.com>",
+  "contributors": [
+    "omri Doron <zbish007@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mozilla-services/react-jsonschema-form#readme" ,
+  
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "ajv": "^6.6.2",
+    "lodash": "^4.17.11",
+    
+    "moment": "^2.23.0",
+    "prop-types": "^15.6.2",
+    
+    "react-native-calendars": "^1.21.0",
+    "react-native-check-box": "^2.1.7",
+    "react-native-modal": "^7.0.2",
+    "react-native-picker-select": "^5.2.0",
+    "react-native-vector-icons": "^6.1.0"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.51.0",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
