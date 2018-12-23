@@ -50,7 +50,7 @@ class SelectWidget extends React.Component {
   {     
     let optionsFull = []
       this.props.options.enumOptions.forEach(element => {
-      optionsFull.push(element.label)
+      optionsFull.push(element.value)
     });
     if (this.props.value!=null && !_.includes(optionsFull,this.props.value))
      this.props.onChange(processValue(this.props.schema, undefined))
@@ -76,8 +76,11 @@ class SelectWidget extends React.Component {
     const { enumOptions, enumDisabled } = options;    
     const emptyValue = multiple ? [] : placeholder?placeholder:"";    
     let optionsFull = []    
+    let label=undefined
     enumOptions.forEach(element => {
       optionsFull.push(element.label)
+      if(element/value==value)
+        label=element.label
     });    
     // const valueverified=_.includes(optionsFull,value)?value:emptyValue
     // onChange(processValue(schema, valueverified))
@@ -107,8 +110,8 @@ class SelectWidget extends React.Component {
       }}
         >
           <View style={[styles.content, widgetStyle('content')]}>
-            {value ?
-              <Text style={widgetStyle('text')}>{value}</Text>
+            {label ?
+              <Text style={widgetStyle('text')}>{label}</Text>
               : <Text style={widgetStyle('placeHolderText')}>{emptyValue}</Text>}
             <Image
               source={require('../../images/dark.png')}
