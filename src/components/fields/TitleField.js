@@ -8,8 +8,7 @@ function TitleField(props) {
   let widgetStyle=(styleName)=>getStyle(styleSheet,styleName,"TitleField")
   return (
     <View id={id} style={[styles.container,widgetStyle('container')]}>
-      <Text style={[styles.text,widgetStyle('text')]}>{title}</Text>
-      {required && <Text>{REQUIRED_FIELD_SYMBOL}</Text>}
+    <Text style={[styles.text,widgetStyle('text')]}>{title}{required && " " +  REQUIRED_FIELD_SYMBOL}</Text>
     </View>
   );
 }
@@ -18,7 +17,8 @@ const styles = StyleSheet.create({
   container:{
     flexDirection:'row',
     marginTop:10,
-    marginBottom:10
+    marginBottom:10,
+    alignItems: 'center',
   },
   text:{
     fontSize:20
