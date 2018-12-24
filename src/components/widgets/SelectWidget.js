@@ -79,7 +79,7 @@ class SelectWidget extends React.Component {
     let label=undefined
     enumOptions.forEach(element => {
       optionsFull.push(element.label)
-      if(element/value==value)
+      if(element.value==value)
         label=element.label
     });    
     // const valueverified=_.includes(optionsFull,value)?value:emptyValue
