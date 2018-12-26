@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {View } from 'react-native'
+import {View,TextInput,Text } from 'react-native'
 
 function RadioWidget(props) {
   const {
@@ -26,8 +26,8 @@ function RadioWidget(props) {
         const disabledCls =
           disabled || itemDisabled || readonly ? "disabled" : "";
         const radio = (
-          <span>
-            <input
+          <View>
+            <TextInput
               type="radio"
               checked={checked}
               name={name}
@@ -37,17 +37,17 @@ function RadioWidget(props) {
               autoFocus={autofocus && i === 0}
               onChange={_ => onChange(option.value)}
             />
-            <span>{option.label}</span>
-          </span>
+            <Text>{option.label}</Text>
+          </View>
         );
 
         return inline ? (
-          <label key={i} className={`radio-inline ${disabledCls}`}>
+          <Text key={i} className={`radio-inline ${disabledCls}`}>
             {radio}
-          </label>
+          </Text>
         ) : (
           <View key={i} className={`radio ${disabledCls}`}>
-            <label>{radio}</label>
+            <Text>{radio}</Text>
           </View>
         );
       })}
