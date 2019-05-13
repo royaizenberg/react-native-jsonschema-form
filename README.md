@@ -7,8 +7,8 @@ A simple [React Native](https://facebook.github.io/react-native/) component capa
 This is a fork of [react-jsonschema-form](https://github.com/mozilla-services/react-jsonschema-form) with derived work to support react native.
 This library does not support react.js
 
-The documentation here is a copy of the documentaion of the original library.
-The main changes are in the styling section, using styleSheet insted of className.
+The documentation here is a copy of the documentation of the original library.
+The main changes are in the styling section, using styleSheet instead of className.
 
 
 ## Table of Contents
@@ -1600,10 +1600,10 @@ If you want to have the field set to a default value when empty you can provide 
 ## Styling your forms
 
 This library renders form fields with defaults.
-That means your forms ares styled with this deafult props 
+That means your forms are styled with this default props 
 
 But you can pass styleSheet, using the UISchema property.
-Styles can beapplied to fileds,widgets, or nameproperites of the schema.
+Styles can be applied to fields, widgets or name properties of the schema.
 
 ## Schema definitions and references
 
