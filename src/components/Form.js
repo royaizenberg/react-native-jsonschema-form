@@ -57,7 +57,10 @@ export default class Form extends Component {
     const edit = typeof props.formData !== "undefined";
     const liveValidate = props.liveValidate || this.props.liveValidate;
     const mustValidate = edit && !props.noValidate && liveValidate;
-    const { definitions } = schema;
+
+    // The legacy $defs is used before the 2019-09 release.
+    const definitions = schema.$defs ? schema.$defs : schema.definitions;
+
     const formData = getDefaultFormState(schema, props.formData, definitions);
     const retrievedSchema = retrieveSchema(schema, definitions, formData);
 

@@ -457,7 +457,7 @@ export function stubExistingAdditionalProperties(
 export function resolveSchema(schema, definitions = {}, formData = {}) {
   if (schema.hasOwnProperty("$ref")) {
     return resolveReference(schema, definitions, formData);
-  } else if (schema.hasOwnProperty("dependencies")) {
+  } else if (schema.hasOwnProperty("dependentSchemas") || schema.hasOwnProperty("dependencies")) {
     const resolvedSchema = resolveDependencies(schema, definitions, formData);
     return retrieveSchema(resolvedSchema, definitions, formData);
   } else {
@@ -496,7 +496,14 @@ export function retrieveSchema(schema, definitions = {}, formData = {}) {
 
 function resolveDependencies(schema, definitions, formData) {
   // Drop the dependencies from the source schema.
-  let { dependencies = {}, ...resolvedSchema } = schema;
+  let { dependentSchemas, ...resolvedSchema } = schema;
+
+  // dependencies is the legacy field.
+  // according to the spec http://json-schema.org/draft/2019-09/release-notes.html:
+  // > dependencies has been split into dependentSchemas and dependentRequired
+  // TODO: support dependentRequired
+  let dependencies = dependentSchemas ? dependentSchemas : schema.dependencies;
+
   // Process dependencies updating the local schema properties as appropriate.
   for (const dependencyKey in dependencies) {
     // Skip this dependency if its trigger property is not present.
