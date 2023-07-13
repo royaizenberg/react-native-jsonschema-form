@@ -192,9 +192,7 @@ export default class Form extends Component {
 
   submit(formData) {
     if (this.formElement) {
-      console.log('this.formElement' , this.formElement)
-      console.log("formData" , formData)
-      // this.formElement.dispatchEvent(new Event("submit", { cancelable: true }));
+      this.onSubmit();
     }
   }
 
